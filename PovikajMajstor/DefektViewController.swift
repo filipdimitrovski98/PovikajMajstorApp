@@ -12,6 +12,7 @@ import MapKit
 import CoreLocation
 
 var globalplace = [String:String]()
+var globalprofesija = String()
 class DefektViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate,MKMapViewDelegate,CLLocationManagerDelegate{
     var manager = CLLocationManager()
     let profesii = ["Elektricar","Vodovodzija","Parketar","Moler"]
@@ -47,6 +48,7 @@ class DefektViewController: UIViewController,UIPickerViewDataSource,UIPickerView
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         profesija = profesii[row]
+        globalprofesija = profesija
         print(profesija)
     }
     
@@ -60,7 +62,7 @@ class DefektViewController: UIViewController,UIPickerViewDataSource,UIPickerView
         
     }
     @IBAction func pokaziMajstoriPressed(_ sender: Any) {
-        
+        performSegue(withIdentifier: "toMajstori", sender: self)
         
     }
     @objc func longpress(gestureRecognizer: UIGestureRecognizer) {

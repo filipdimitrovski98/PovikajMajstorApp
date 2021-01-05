@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2329610EF21B8D39C1E5EEA8 /* Pods_PovikajMajstor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E1B7B68565B10CBDC515D9 /* Pods_PovikajMajstor.framework */; };
+		2694380A25A509AE008753BF /* MajstorBaranjaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2694380925A509AE008753BF /* MajstorBaranjaTableViewController.swift */; };
+		2694380C25A509EA008753BF /* MajstorBaranjeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2694380B25A509EA008753BF /* MajstorBaranjeTableViewCell.swift */; };
+		2694380E25A515E7008753BF /* PortfolioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2694380D25A515E7008753BF /* PortfolioTableViewCell.swift */; };
+		2694381025A51617008753BF /* PortfolioTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2694380F25A51617008753BF /* PortfolioTableViewController.swift */; };
 		26B89AD925A26FCE0033919D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B89AD825A26FCE0033919D /* AppDelegate.swift */; };
 		26B89ADB25A26FCE0033919D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B89ADA25A26FCE0033919D /* SceneDelegate.swift */; };
 		26B89ADD25A26FCE0033919D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B89ADC25A26FCE0033919D /* ViewController.swift */; };
@@ -16,9 +20,15 @@
 		26B89AE525A26FD70033919D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26B89AE325A26FD70033919D /* LaunchScreen.storyboard */; };
 		26B95BD525A388050082D4B8 /* DefektViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B95BD425A388050082D4B8 /* DefektViewController.swift */; };
 		26B95BD725A393370082D4B8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26B95BD625A393370082D4B8 /* CoreLocation.framework */; };
+		26CBFE9125A4C98800637602 /* MajstoriTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CBFE9025A4C98800637602 /* MajstoriTableViewController.swift */; };
+		26CBFE9325A4CE9F00637602 /* MajstoriTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CBFE9225A4CE9F00637602 /* MajstoriTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2694380925A509AE008753BF /* MajstorBaranjaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajstorBaranjaTableViewController.swift; sourceTree = "<group>"; };
+		2694380B25A509EA008753BF /* MajstorBaranjeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajstorBaranjeTableViewCell.swift; sourceTree = "<group>"; };
+		2694380D25A515E7008753BF /* PortfolioTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioTableViewCell.swift; sourceTree = "<group>"; };
+		2694380F25A51617008753BF /* PortfolioTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioTableViewController.swift; sourceTree = "<group>"; };
 		26B89AD525A26FCE0033919D /* PovikajMajstor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PovikajMajstor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26B89AD825A26FCE0033919D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26B89ADA25A26FCE0033919D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -29,6 +39,8 @@
 		26B89AE625A26FD70033919D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26B95BD425A388050082D4B8 /* DefektViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefektViewController.swift; sourceTree = "<group>"; };
 		26B95BD625A393370082D4B8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		26CBFE9025A4C98800637602 /* MajstoriTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajstoriTableViewController.swift; sourceTree = "<group>"; };
+		26CBFE9225A4CE9F00637602 /* MajstoriTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajstoriTableViewCell.swift; sourceTree = "<group>"; };
 		54FC267665C303E4BD6BE56E /* Pods-PovikajMajstor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PovikajMajstor.debug.xcconfig"; path = "Target Support Files/Pods-PovikajMajstor/Pods-PovikajMajstor.debug.xcconfig"; sourceTree = "<group>"; };
 		843C547D943991D305A6284C /* Pods-PovikajMajstor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PovikajMajstor.release.xcconfig"; path = "Target Support Files/Pods-PovikajMajstor/Pods-PovikajMajstor.release.xcconfig"; sourceTree = "<group>"; };
 		D0E1B7B68565B10CBDC515D9 /* Pods_PovikajMajstor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PovikajMajstor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,10 +84,16 @@
 				26B89ADA25A26FCE0033919D /* SceneDelegate.swift */,
 				26B89ADC25A26FCE0033919D /* ViewController.swift */,
 				26B95BD425A388050082D4B8 /* DefektViewController.swift */,
+				26CBFE9025A4C98800637602 /* MajstoriTableViewController.swift */,
+				2694380F25A51617008753BF /* PortfolioTableViewController.swift */,
 				26B89ADE25A26FCE0033919D /* Main.storyboard */,
+				2694380925A509AE008753BF /* MajstorBaranjaTableViewController.swift */,
 				26B89AE125A26FD70033919D /* Assets.xcassets */,
 				26B89AE325A26FD70033919D /* LaunchScreen.storyboard */,
 				26B89AE625A26FD70033919D /* Info.plist */,
+				26CBFE9225A4CE9F00637602 /* MajstoriTableViewCell.swift */,
+				2694380B25A509EA008753BF /* MajstorBaranjeTableViewCell.swift */,
+				2694380D25A515E7008753BF /* PortfolioTableViewCell.swift */,
 			);
 			path = PovikajMajstor;
 			sourceTree = "<group>";
@@ -213,9 +231,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2694381025A51617008753BF /* PortfolioTableViewController.swift in Sources */,
+				26CBFE9325A4CE9F00637602 /* MajstoriTableViewCell.swift in Sources */,
 				26B89ADD25A26FCE0033919D /* ViewController.swift in Sources */,
+				2694380A25A509AE008753BF /* MajstorBaranjaTableViewController.swift in Sources */,
 				26B89AD925A26FCE0033919D /* AppDelegate.swift in Sources */,
+				26CBFE9125A4C98800637602 /* MajstoriTableViewController.swift in Sources */,
 				26B89ADB25A26FCE0033919D /* SceneDelegate.swift in Sources */,
+				2694380C25A509EA008753BF /* MajstorBaranjeTableViewCell.swift in Sources */,
+				2694380E25A515E7008753BF /* PortfolioTableViewCell.swift in Sources */,
 				26B95BD525A388050082D4B8 /* DefektViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

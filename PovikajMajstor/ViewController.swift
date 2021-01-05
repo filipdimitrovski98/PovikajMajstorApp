@@ -123,10 +123,11 @@ class ViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelega
                            } else {
                                print("Log in success!")
                             if(user!["korisnik"] as! String == "obicen"){
+                                print(user!["korisnik"] as! String)
                               self.performSegue(withIdentifier: "toDefektView", sender: self)
                             }
                             else if(user!["korisnik"] as! String == "majstor") {
-                              self.performSegue(withIdentifier: " ", sender: self) // TUKA SMENI
+                              //self.performSegue(withIdentifier: "toBaranjaView", sender: self) // TUKA SMENI
                             }
                                
                            }
