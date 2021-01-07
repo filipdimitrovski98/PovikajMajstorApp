@@ -82,7 +82,7 @@ class ViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelega
                                 self.displayAlert(title: "Error signing up", message: errorString)
                             } else {
                                 print("Sign up success!")
-                                self.performSegue(withIdentifier: " ", sender: self)
+                                self.performSegue(withIdentifier: "toBaranjaView", sender: self)
                             }
                         }
                         }
@@ -127,7 +127,7 @@ class ViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelega
                               self.performSegue(withIdentifier: "toDefektView", sender: self)
                             }
                             else if(user!["korisnik"] as! String == "majstor") {
-                              //self.performSegue(withIdentifier: "toBaranjaView", sender: self) // TUKA SMENI
+                              self.performSegue(withIdentifier: "toBaranjaView", sender: self) // TUKA SMENI
                             }
                                
                            }

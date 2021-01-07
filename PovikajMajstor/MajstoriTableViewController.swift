@@ -8,7 +8,7 @@
 
 import UIKit
 import Parse
-
+var izbranobjectId = String()
 class MajstoriTableViewController: UITableViewController {
     
 
@@ -91,11 +91,18 @@ override func viewDidLoad() {
        	
         
     }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        izbranobjectId = objectIds[indexPath.row]
+        performSegue(withIdentifier: "toPortfolioMajstor", sender: nil)
+        
+    }
+    
     override func tableView(_ tableView: UITableView,
              heightForRowAt indexPath: IndexPath) -> CGFloat {
     
         return 80
     }
+    
     
     @IBAction func refreshtable(_ sender: Any) {
         print("Refresh pressed")

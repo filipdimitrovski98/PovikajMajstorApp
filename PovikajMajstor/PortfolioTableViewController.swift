@@ -5,9 +5,9 @@
 //  Created by Filip Dimitrovski on 1/5/21.
 //  Copyright © 2021 Filip Dimitrovski. All rights reserved.
 //
-
+// var izbranobjectId
 import UIKit
-
+import Parse
 class PortfolioTableViewController: UITableViewController {
 
     override func viewDidLoad() {
@@ -41,7 +41,21 @@ class PortfolioTableViewController: UITableViewController {
         return 222
     }
     @IBAction func pobarajPressed(_ sender: Any) {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        formatter.timeStyle = .medium
+        let datum = formatter.string(from: Date())
         
+        let baranjeEntry = PFObject(className: "Baranje")
+        baranjeEntry["korisnikbaratel"] = PFUser.current()?.objectId
+        baranjeEntry["majstorpobaran"] = izbranobjectId
+        baranjeEntry["opis"] = globalopis
+        baranjeEntry["datumbaranje"] = datum
+        baranjeEntry["lokacija"] = globalplace
+        baranjeEntry["status"] = "aktivnobaranje"
+        
+        baranjeEntry.saveInBackground()
+        print("Successfull entry for baranje")
     }
     
 }

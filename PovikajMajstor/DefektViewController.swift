@@ -13,6 +13,7 @@ import CoreLocation
 
 var globalplace = [String:String]()
 var globalprofesija = String()
+var globalopis = String()
 class DefektViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate,MKMapViewDelegate,CLLocationManagerDelegate{
     var manager = CLLocationManager()
     let profesii = ["Elektricar","Vodovodzija","Parketar","Moler"]
@@ -62,8 +63,21 @@ class DefektViewController: UIViewController,UIPickerViewDataSource,UIPickerView
         
     }
     @IBAction func pokaziMajstoriPressed(_ sender: Any) {
-        performSegue(withIdentifier: "toMajstori", sender: self)
+        if pressed == false {
+            displayAlert(title: "Error in form", message: "Postavi lokacija na defektot")
+            
+        }
+        else{
+        if let opis = opisTextField.text {
+            globalopis = opis
+        }
+        else {
+            
+            globalopis = "Defektot nema opis"
+        }
         
+        performSegue(withIdentifier: "toMajstori", sender: nil)
+        }
     }
     @objc func longpress(gestureRecognizer: UIGestureRecognizer) {
         print("longpress")
@@ -125,5 +139,10 @@ class DefektViewController: UIViewController,UIPickerViewDataSource,UIPickerView
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         let region = MKCoordinateRegion(center: location, span: span)
         self.map.setRegion(region, animated: true)
+    }
+    func displayAlert(title:String, message:String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alertController, animated: true, completion: nil)
     }
 }
