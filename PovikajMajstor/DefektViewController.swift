@@ -134,6 +134,9 @@ class DefektViewController: UIViewController,UIPickerViewDataSource,UIPickerView
         }
     }
     
+    @IBAction func baranjaButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "tokorisnikbaranja", sender: nil)
+    }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = CLLocationCoordinate2D(latitude: locations[0].coordinate.latitude, longitude: locations[0].coordinate.longitude)
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
@@ -146,3 +149,4 @@ class DefektViewController: UIViewController,UIPickerViewDataSource,UIPickerView
         self.present(alertController, animated: true, completion: nil)
     }
 }
+

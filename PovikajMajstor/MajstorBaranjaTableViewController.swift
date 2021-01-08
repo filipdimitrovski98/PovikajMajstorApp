@@ -8,6 +8,11 @@
 
 import UIKit
 import Parse
+var sendobjectId = String()
+var sendkorisnikId = String()
+
+var sendime = String()
+var prezime = String()
 
 class MajstorBaranjaTableViewController: UITableViewController {
     
@@ -39,7 +44,9 @@ class MajstorBaranjaTableViewController: UITableViewController {
         
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            
+        sendobjectId = objectIds[indexPath.row]
+        sendkorisnikId = korisnikIds[indexPath.row]
+        performSegue(withIdentifier: "tobaranjedetal", sender: nil)
     }
 
     
