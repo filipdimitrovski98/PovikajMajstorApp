@@ -17,7 +17,7 @@ class MajstorBaranjeDetailViewController: UIViewController,MKMapViewDelegate,CLL
         createDatePicker()
         updatedata()
       
-        print(self.place)
+        //print(self.place)
 
         
     }

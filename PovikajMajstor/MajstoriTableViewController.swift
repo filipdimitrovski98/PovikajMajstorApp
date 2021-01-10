@@ -8,7 +8,7 @@
 
 import UIKit
 import Parse
-var izbranobjectId = String()
+//var izbranobjectId = String()
 class MajstoriTableViewController: UITableViewController {
     
 
@@ -44,7 +44,8 @@ override func viewDidLoad() {
         let cell = tableView.dequeueReusableCell(withIdentifier: "majstorkelija", for: indexPath) as! MajstoriTableViewCell
         cell.ImeLabel.text = names[indexPath.row]
         cell.PrezimeLabel.text = lastnames[indexPath.row]
-        cell.RastojanieLabel.text = "Nepoznato"
+        cell.RastojanieLabel.text = "Rastojanie"
+        
         
         
 
@@ -92,7 +93,7 @@ override func viewDidLoad() {
         
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        izbranobjectId = objectIds[indexPath.row]
+        sendmajstorId = objectIds[indexPath.row]
         performSegue(withIdentifier: "toPortfolioMajstor", sender: nil)
         
     }

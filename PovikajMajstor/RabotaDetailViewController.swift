@@ -42,14 +42,45 @@ class RabotaDetailViewController: UIViewController {
     @IBOutlet weak var otkaziButton: UIButton!
     
     @IBAction func prifatiPressed(_ sender: Any) {
-        
+        let query = PFQuery(className:"Baranje")
+        query.getObjectInBackground(withId: sendobjectId) { (baranje: PFObject?, error: Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let baranje = baranje {
+                baranje["status"] = "zakazanarabota"
+                baranje.saveInBackground()
+                print("Ponuda uspesno ispratena")
+            }
+        }
     }
 
     @IBAction func odbijPressed(_ sender: Any) {
+        let query = PFQuery(className:"Baranje")
+        print(sendobjectId)
+           query.getObjectInBackground(withId: sendobjectId) { (baranje: PFObject?, error: Error?) in
+               if let error = error {
+                   print(error.localizedDescription)
+               } else if let baranje = baranje {
+                  
+                baranje.deleteInBackground()
+                print("Ponuda uspesno odbiena")
+               }
+           }
         
     }
     
     @IBAction func otkaziPressed(_ sender: Any) {
+        let query = PFQuery(className:"Baranje")
+        print(sendobjectId)
+           query.getObjectInBackground(withId: sendobjectId) { (baranje: PFObject?, error: Error?) in
+               if let error = error {
+                   print(error.localizedDescription)
+               } else if let baranje = baranje {
+                  
+                baranje.deleteInBackground()
+                print("Ponuda uspesno otkazana")
+               }
+           }
         
     }
     

@@ -12,6 +12,9 @@
 		2630980725A8CDD600315CA6 /* BaranjeKorisnikTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2630980625A8CDD600315CA6 /* BaranjeKorisnikTableViewCell.swift */; };
 		2630980925A8CE0800315CA6 /* KorisnikBaranjaRabotiTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2630980825A8CE0800315CA6 /* KorisnikBaranjaRabotiTableViewController.swift */; };
 		2630980B25A8F65B00315CA6 /* RabotaDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2630980A25A8F65B00315CA6 /* RabotaDetailViewController.swift */; };
+		268A554C25AAED9A00E25843 /* MajstorRabotiTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268A554B25AAED9A00E25843 /* MajstorRabotiTableViewController.swift */; };
+		268A554E25AAEDCE00E25843 /* MajstorRabotaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268A554D25AAEDCE00E25843 /* MajstorRabotaTableViewCell.swift */; };
+		268A555025AAFA3900E25843 /* MajstorRabotaDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268A554F25AAFA3900E25843 /* MajstorRabotaDetailViewController.swift */; };
 		2694380A25A509AE008753BF /* MajstorBaranjaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2694380925A509AE008753BF /* MajstorBaranjaTableViewController.swift */; };
 		2694380C25A509EA008753BF /* MajstorBaranjeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2694380B25A509EA008753BF /* MajstorBaranjeTableViewCell.swift */; };
 		2694380E25A515E7008753BF /* PortfolioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2694380D25A515E7008753BF /* PortfolioTableViewCell.swift */; };
@@ -33,6 +36,9 @@
 		2630980625A8CDD600315CA6 /* BaranjeKorisnikTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaranjeKorisnikTableViewCell.swift; sourceTree = "<group>"; };
 		2630980825A8CE0800315CA6 /* KorisnikBaranjaRabotiTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KorisnikBaranjaRabotiTableViewController.swift; sourceTree = "<group>"; };
 		2630980A25A8F65B00315CA6 /* RabotaDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RabotaDetailViewController.swift; sourceTree = "<group>"; };
+		268A554B25AAED9A00E25843 /* MajstorRabotiTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajstorRabotiTableViewController.swift; sourceTree = "<group>"; };
+		268A554D25AAEDCE00E25843 /* MajstorRabotaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajstorRabotaTableViewCell.swift; sourceTree = "<group>"; };
+		268A554F25AAFA3900E25843 /* MajstorRabotaDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajstorRabotaDetailViewController.swift; sourceTree = "<group>"; };
 		2694380925A509AE008753BF /* MajstorBaranjaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajstorBaranjaTableViewController.swift; sourceTree = "<group>"; };
 		2694380B25A509EA008753BF /* MajstorBaranjeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajstorBaranjeTableViewCell.swift; sourceTree = "<group>"; };
 		2694380D25A515E7008753BF /* PortfolioTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioTableViewCell.swift; sourceTree = "<group>"; };
@@ -99,6 +105,8 @@
 				26B89ADE25A26FCE0033919D /* Main.storyboard */,
 				2694380925A509AE008753BF /* MajstorBaranjaTableViewController.swift */,
 				2630980425A8A4E900315CA6 /* MajstorBaranjeDetailViewController.swift */,
+				268A554B25AAED9A00E25843 /* MajstorRabotiTableViewController.swift */,
+				268A554F25AAFA3900E25843 /* MajstorRabotaDetailViewController.swift */,
 				26B89AE125A26FD70033919D /* Assets.xcassets */,
 				26B89AE325A26FD70033919D /* LaunchScreen.storyboard */,
 				26B89AE625A26FD70033919D /* Info.plist */,
@@ -106,6 +114,7 @@
 				2694380B25A509EA008753BF /* MajstorBaranjeTableViewCell.swift */,
 				2630980625A8CDD600315CA6 /* BaranjeKorisnikTableViewCell.swift */,
 				2694380D25A515E7008753BF /* PortfolioTableViewCell.swift */,
+				268A554D25AAEDCE00E25843 /* MajstorRabotaTableViewCell.swift */,
 			);
 			path = PovikajMajstor;
 			sourceTree = "<group>";
@@ -245,6 +254,7 @@
 			files = (
 				2694381025A51617008753BF /* PortfolioTableViewController.swift in Sources */,
 				26CBFE9325A4CE9F00637602 /* MajstoriTableViewCell.swift in Sources */,
+				268A554C25AAED9A00E25843 /* MajstorRabotiTableViewController.swift in Sources */,
 				26B89ADD25A26FCE0033919D /* ViewController.swift in Sources */,
 				2694380A25A509AE008753BF /* MajstorBaranjaTableViewController.swift in Sources */,
 				26B89AD925A26FCE0033919D /* AppDelegate.swift in Sources */,
@@ -256,6 +266,8 @@
 				2694380C25A509EA008753BF /* MajstorBaranjeTableViewCell.swift in Sources */,
 				2694380E25A515E7008753BF /* PortfolioTableViewCell.swift in Sources */,
 				2630980B25A8F65B00315CA6 /* RabotaDetailViewController.swift in Sources */,
+				268A554E25AAEDCE00E25843 /* MajstorRabotaTableViewCell.swift in Sources */,
+				268A555025AAFA3900E25843 /* MajstorRabotaDetailViewController.swift in Sources */,
 				26B95BD525A388050082D4B8 /* DefektViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

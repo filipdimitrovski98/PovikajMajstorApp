@@ -85,6 +85,7 @@ class MajstorBaranjaTableViewController: UITableViewController {
       
         return cell
     }
+    
     @objc func updateTable() {
         self.datumi.removeAll()
         self.objectIds.removeAll()
@@ -117,6 +118,9 @@ class MajstorBaranjaTableViewController: UITableViewController {
         
         })
 
+    }
+    @IBAction func rabotiPressed(_ sender: Any) {
+        performSegue(withIdentifier: "tomajstorraboti", sender: nil)
     }
     override func tableView(_ tableView: UITableView,
              heightForRowAt indexPath: IndexPath) -> CGFloat {
