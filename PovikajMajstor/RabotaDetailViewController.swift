@@ -10,14 +10,14 @@ import UIKit
 import Parse
 //sendmajstorId sendobjectId
 class RabotaDetailViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         updateview()
-    
-    
-    
+        
+        
+        
     }
     var status = String()
     
@@ -36,7 +36,7 @@ class RabotaDetailViewController: UIViewController {
     
     @IBOutlet weak var prifatiButton: UIButton!
     @IBOutlet weak var odbijButton: UIButton!
-
+    
     @IBOutlet weak var image: UIImageView!
     
     @IBOutlet weak var otkaziButton: UIButton!
@@ -53,136 +53,136 @@ class RabotaDetailViewController: UIViewController {
             }
         }
     }
-
+    
     @IBAction func odbijPressed(_ sender: Any) {
         let query = PFQuery(className:"Baranje")
         print(sendobjectId)
-           query.getObjectInBackground(withId: sendobjectId) { (baranje: PFObject?, error: Error?) in
-               if let error = error {
-                   print(error.localizedDescription)
-               } else if let baranje = baranje {
-                  
+        query.getObjectInBackground(withId: sendobjectId) { (baranje: PFObject?, error: Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let baranje = baranje {
+                
                 baranje.deleteInBackground()
                 print("Ponuda uspesno odbiena")
-               }
-           }
+            }
+        }
         
     }
     
     @IBAction func otkaziPressed(_ sender: Any) {
         let query = PFQuery(className:"Baranje")
         print(sendobjectId)
-           query.getObjectInBackground(withId: sendobjectId) { (baranje: PFObject?, error: Error?) in
-               if let error = error {
-                   print(error.localizedDescription)
-               } else if let baranje = baranje {
-                  
+        query.getObjectInBackground(withId: sendobjectId) { (baranje: PFObject?, error: Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let baranje = baranje {
+                
                 baranje.deleteInBackground()
                 print("Ponuda uspesno otkazana")
-               }
-           }
+            }
+        }
         
     }
     
     func updateview(){
         let query = PFQuery(className:"Baranje")
-               query.getObjectInBackground(withId: sendobjectId) { (baranje: PFObject?, error: Error?) in
-                   if let error = error {
-                       print(error.localizedDescription)
-                   } else if let baranje = baranje {
-                       self.status = baranje["status"] as! String
-                       if self.status == "aktivnobaranje" {
-                           
-                        self.cenaInfoLabel.isHidden = true
-                           self.datumInfoLabel.isHidden = true
-                           self.datumLabelB.isHidden = true
-                           self.cenaLabel.isHidden = true
-                           self.prifatiButton.isHidden = true
-                           self.odbijButton.isHidden = true
-                           self.image.isHidden = true
-                           self.otkaziButton.isHidden = false
-                       }
-                       else if self.status == "ispratenaponuda" {
-                           self.datumInfoLabel.isHidden = false
-                           self.datumInfoLabel.text = "Ponuden datum"
-                           self.datumLabelB.isHidden = false
-                           self.cenaLabel.isHidden = false
-                        self.cenaInfoLabel.isHidden = false
-                           self.prifatiButton.isHidden = false
-                           self.odbijButton.isHidden = false
-                           self.image.isHidden = true
-                           self.otkaziButton.isHidden = true
-                           self.datumLabelB.text = baranje["datumponuda"] as? String
-                           self.cenaLabel.text = baranje["cena"] as? String
-                           
-                           
-                       }
-                       else if self.status == "zakazanarabota" {
-                           self.datumInfoLabel.isHidden = false
-                           self.datumInfoLabel.text = "Zakazan datum"
-                           self.datumLabelB.isHidden = false
-                           self.cenaLabel.isHidden = false
-                        self.cenaInfoLabel.isHidden = false
-                           self.prifatiButton.isHidden = true
-                           self.odbijButton.isHidden = true
-                           self.image.isHidden = true
-                           self.otkaziButton.isHidden = true
-                           self.datumLabelB.text = baranje["datumponuda"] as? String
-                           self.cenaLabel.text = baranje["cena"] as? String
-                           
-                           
-                       }
-                       else if self.status == "zavrsenarabota" {
-                           self.datumInfoLabel.isHidden = false
-                           self.datumInfoLabel.text = "Zavrseno na datum"
-                           self.datumLabelB.isHidden = false
-                           self.cenaLabel.isHidden = false
-                        self.cenaInfoLabel.isHidden = false
-                           self.prifatiButton.isHidden = true
-                           self.odbijButton.isHidden = true
-                           self.image.isHidden = false
-                           self.otkaziButton.isHidden = true
-                           self.datumLabelB.text = baranje["datumzavrsuvanje"] as? String
-                           self.cenaLabel.text = baranje["cena"] as? String
-                          //if let image = baranje[]
-                           //self.image
-                           
-                       }
+        query.getObjectInBackground(withId: sendobjectId) { (baranje: PFObject?, error: Error?) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let baranje = baranje {
+                self.status = baranje["status"] as! String
+                if self.status == "aktivnobaranje" {
                     
-                       let userquery = PFUser.query()
-                       //print("korisnik")
-                       //print(korisnikIds[indexPath.row])
-                       userquery?.whereKey("objectId", equalTo: sendmajstorId)
-                           userquery?.findObjectsInBackground(block: { (users,error) in
-                               if error != nil {
-                                   print(error?.localizedDescription ?? "")
-                               }
-                               else if let users = users {
-                                   let user = users[0]
-                                   self.imeLabel.text = user["name"] as? String
-                                   self.prezimeLabel.text = user["lastName"] as? String
-                                   self.telefonLabel.text = user["phoneNumber"] as? String
-                                self.emailLabel.text = user["username"] as? String
-                                   self.profesijaLabel.text = user["profesija"] as? String
-                                   
-                                   
-                                   
-                               }
-                               
-                           })
-                       
-                       self.opisLabel.text = baranje["opis"] as? String
-                       self.datumLabelA.text = baranje["datumbaranje"] as? String
-                       self.statusLabel.text = baranje["status"] as? String
-                       
-                       
-                       
-                       
-                   }
-               }
+                    self.cenaInfoLabel.isHidden = true
+                    self.datumInfoLabel.isHidden = true
+                    self.datumLabelB.isHidden = true
+                    self.cenaLabel.isHidden = true
+                    self.prifatiButton.isHidden = true
+                    self.odbijButton.isHidden = true
+                    self.image.isHidden = true
+                    self.otkaziButton.isHidden = false
+                }
+                else if self.status == "ispratenaponuda" {
+                    self.datumInfoLabel.isHidden = false
+                    self.datumInfoLabel.text = "Ponuden datum"
+                    self.datumLabelB.isHidden = false
+                    self.cenaLabel.isHidden = false
+                    self.cenaInfoLabel.isHidden = false
+                    self.prifatiButton.isHidden = false
+                    self.odbijButton.isHidden = false
+                    self.image.isHidden = true
+                    self.otkaziButton.isHidden = true
+                    self.datumLabelB.text = baranje["datumponuda"] as? String
+                    self.cenaLabel.text = baranje["cena"] as? String
+                    
+                    
+                }
+                else if self.status == "zakazanarabota" {
+                    self.datumInfoLabel.isHidden = false
+                    self.datumInfoLabel.text = "Zakazan datum"
+                    self.datumLabelB.isHidden = false
+                    self.cenaLabel.isHidden = false
+                    self.cenaInfoLabel.isHidden = false
+                    self.prifatiButton.isHidden = true
+                    self.odbijButton.isHidden = true
+                    self.image.isHidden = true
+                    self.otkaziButton.isHidden = true
+                    self.datumLabelB.text = baranje["datumponuda"] as? String
+                    self.cenaLabel.text = baranje["cena"] as? String
+                    
+                    
+                }
+                else if self.status == "zavrsenarabota" {
+                    self.datumInfoLabel.isHidden = false
+                    self.datumInfoLabel.text = "Zavrseno na datum"
+                    self.datumLabelB.isHidden = false
+                    self.cenaLabel.isHidden = false
+                    self.cenaInfoLabel.isHidden = false
+                    self.prifatiButton.isHidden = true
+                    self.odbijButton.isHidden = true
+                    self.image.isHidden = false
+                    self.otkaziButton.isHidden = true
+                    self.datumLabelB.text = baranje["datumzavrsuvanje"] as? String
+                    self.cenaLabel.text = baranje["cena"] as? String
+                    //if let image = baranje[]
+                    //self.image
+                    
+                }
+                
+                let userquery = PFUser.query()
+                //print("korisnik")
+                //print(korisnikIds[indexPath.row])
+                userquery?.whereKey("objectId", equalTo: sendmajstorId)
+                userquery?.findObjectsInBackground(block: { (users,error) in
+                    if error != nil {
+                        print(error?.localizedDescription ?? "")
+                    }
+                    else if let users = users {
+                        let user = users[0]
+                        self.imeLabel.text = user["name"] as? String
+                        self.prezimeLabel.text = user["lastName"] as? String
+                        self.telefonLabel.text = user["phoneNumber"] as? String
+                        self.emailLabel.text = user["username"] as? String
+                        self.profesijaLabel.text = user["profesija"] as? String
+                        
+                        
+                        
+                    }
+                    
+                })
+                
+                self.opisLabel.text = baranje["opis"] as? String
+                self.datumLabelA.text = baranje["datumbaranje"] as? String
+                self.statusLabel.text = baranje["status"] as? String
+                
+                
+                
+                
+            }
+        }
         
         
     }
-
-
- }
+    
+    
+}

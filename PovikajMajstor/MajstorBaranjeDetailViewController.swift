@@ -11,14 +11,14 @@ import Parse
 import MapKit
 
 class MajstorBaranjeDetailViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         createDatePicker()
         updatedata()
-      
+        
         //print(self.place)
-
+        
         
     }
     let datePicker = UIDatePicker()
@@ -66,45 +66,45 @@ class MajstorBaranjeDetailViewController: UIViewController,MKMapViewDelegate,CLL
                 print(error?.localizedDescription ?? "")
             }
             else if let objects = objects {
-               let object = objects[0]
+                let object = objects[0]
                 if let opis = object["opis"] as? String {
                     if let place = object["lokacija"] {
-                       self.opisLabel.text = opis
+                        self.opisLabel.text = opis
                         //print(place)
-                       self.place = place as! [String:String]
+                        self.place = place as! [String:String]
                         //print(self.place)
                         if let name = self.place["name"] {
                             if let lat = self.place["lat"] {
                                 if let lon = self.place["lon"] {
-                                   if let latitude = Double(lat) {
-                                       if let longitude = Double(lon) {
-                                           let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-                                           let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-                                           let region = MKCoordinateRegion(center: coordinate, span: span)
-                                           self.map.setRegion(region, animated: true)
-                                           let annotation = MKPointAnnotation()
-                                           annotation.coordinate = coordinate
-                                           annotation.title = name
-                                           self.map.addAnnotation(annotation)
-                                        self.view.setNeedsDisplay()
+                                    if let latitude = Double(lat) {
+                                        if let longitude = Double(lon) {
+                                            let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+                                            let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                                            let region = MKCoordinateRegion(center: coordinate, span: span)
+                                            self.map.setRegion(region, animated: true)
+                                            let annotation = MKPointAnnotation()
+                                            annotation.coordinate = coordinate
+                                            annotation.title = name
+                                            self.map.addAnnotation(annotation)
+                                            self.view.setNeedsDisplay()
+                                        }
                                     }
-                                   }
-                               }
-                           }
-                       }
+                                }
+                            }
+                        }
                     }
                     
-                
+                    
                 }
                 
             }
             
         })
-    
-    let userquery = PFUser.query()
-    //print("korisnik")
-    //print(korisnikIds[indexPath.row])
-    userquery?.whereKey("objectId", equalTo: sendkorisnikId)
+        
+        let userquery = PFUser.query()
+        //print("korisnik")
+        //print(korisnikIds[indexPath.row])
+        userquery?.whereKey("objectId", equalTo: sendkorisnikId)
         userquery?.findObjectsInBackground(block: { (users,error) in
             if error != nil {
                 print(error?.localizedDescription ?? "")
@@ -129,37 +129,37 @@ class MajstorBaranjeDetailViewController: UIViewController,MKMapViewDelegate,CLL
             displayAlert(title: "Insert both:", message: "Cena and Datum")
         }
         else{
+            let query = PFQuery(className:"Baranje")
+            query.getObjectInBackground(withId: sendobjectId) { (baranje: PFObject?, error: Error?) in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else if let baranje = baranje {
+                    baranje["status"] = "ispratenaponuda"
+                    baranje["datumponuda"] = self.ponudendatumTextField.text
+                    baranje["cena"] = self.cenaTextField.text
+                    baranje.saveInBackground()
+                    print("Ponuda uspesno ispratena")
+                }
+            }
+        }
+    }
+    func displayAlert(title:String, message:String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    @IBAction func odbijBaranje(_ sender: Any) {
         let query = PFQuery(className:"Baranje")
+        print(sendobjectId)
         query.getObjectInBackground(withId: sendobjectId) { (baranje: PFObject?, error: Error?) in
             if let error = error {
                 print(error.localizedDescription)
             } else if let baranje = baranje {
-                baranje["status"] = "ispratenaponuda"
-                baranje["datumponuda"] = self.ponudendatumTextField.text
-                baranje["cena"] = self.cenaTextField.text
-                baranje.saveInBackground()
-                print("Ponuda uspesno ispratena")
+                
+                baranje.deleteInBackground()
+                print("Ponuda uspesno odbiena")
             }
         }
-    }
-    }
-    func displayAlert(title:String, message:String) {
-           let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-           alertController.addAction(UIAlertAction(title: "OK", style: .default))
-           self.present(alertController, animated: true, completion: nil)
-       }
-    
-    @IBAction func odbijBaranje(_ sender: Any) {
-        let query = PFQuery(className:"Baranje")
-            print(sendobjectId)
-               query.getObjectInBackground(withId: sendobjectId) { (baranje: PFObject?, error: Error?) in
-                   if let error = error {
-                       print(error.localizedDescription)
-                   } else if let baranje = baranje {
-                      
-                    baranje.deleteInBackground()
-                    print("Ponuda uspesno odbiena")
-                   }
-               }
     }
 }

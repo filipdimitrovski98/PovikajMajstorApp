@@ -12,14 +12,14 @@ import MapKit
 import CoreLocation
 
 var globalplace = [String:String]()
-var globalprofesija = String()
+var globalprofesija = "Elektricar"
 var globalopis = String()
 class DefektViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate,MKMapViewDelegate,CLLocationManagerDelegate{
     var manager = CLLocationManager()
     let profesii = ["Elektricar","Vodovodzija","Parketar","Moler"]
     var profesija = "Elektricar"
     var pressed = false
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let uilpgr = UILongPressGestureRecognizer(target: self, action: #selector(DefektViewController.longpress(gestureRecognizer:)))
@@ -29,7 +29,7 @@ class DefektViewController: UIViewController,UIPickerViewDataSource,UIPickerView
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
-               
+        
     }
     
     @IBOutlet weak var map: MKMapView!
@@ -68,15 +68,15 @@ class DefektViewController: UIViewController,UIPickerViewDataSource,UIPickerView
             
         }
         else{
-        if let opis = opisTextField.text {
-            globalopis = opis
-        }
-        else {
+            if let opis = opisTextField.text {
+                globalopis = opis
+            }
+            else {
+                
+                globalopis = "Defektot nema opis"
+            }
             
-            globalopis = "Defektot nema opis"
-        }
-        
-        performSegue(withIdentifier: "toMajstori", sender: nil)
+            performSegue(withIdentifier: "toMajstori", sender: nil)
         }
     }
     @objc func longpress(gestureRecognizer: UIGestureRecognizer) {
@@ -117,15 +117,15 @@ class DefektViewController: UIViewController,UIPickerViewDataSource,UIPickerView
                     let lon = String(newCoordinate.longitude)
                     
                     let place = ["name": title,
-                    "lat": lat,
-                    "lon": lon
+                                 "lat": lat,
+                                 "lon": lon
                     ]
-                   
-                   
+                    
+                    
                     globalplace = place
                     print(globalplace)
                     self.pressed = true
-                    }
+                }
             })
             /*let annotation = MKPointAnnotation()
              annotation.coordinate = newCoordinate
